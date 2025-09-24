@@ -8,8 +8,10 @@ app.use(express.json());
 app.use(errorMiddleware);
 app.use("/api/v1/auth", AuthRouter);
 app.use("/api/v1/expense", expenseRouter);
+app.get("/",(req,res)=>{
+  res.send("hello and welcome to expense tracker")
+})
 app.listen(3000, (req, res) => {
   console.log("App up and running");
-  res.send("Hello welcome to expense-tracker");
   connectToDatabase();
 });
